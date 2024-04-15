@@ -112,7 +112,7 @@
 
   const navigation = [
     { name: 'Cryptocurrencies', routeName: 'cryptoList' },
-    { name: 'About', routeName: '' },
+    { name: 'About', routeName: 'about' },
   ]
 
   const open = false

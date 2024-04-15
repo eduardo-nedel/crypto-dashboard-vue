@@ -9,6 +9,11 @@ const router = createRouter({
       component: () => import('../views/CryptoListView.vue')
     },
     {
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue')
+    },
+    {
       path: '/currencies/:id',
       name: 'cryptoDetails',
       component: () => import('../views/CryptoDetailsView.vue')

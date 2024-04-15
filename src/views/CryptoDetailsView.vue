@@ -24,7 +24,7 @@
 
     <div class="w-full bg-white rounded-xl p-5 mb-5">
       <div class="flex flex-row wrap">
-        <VueDatePicker v-model="date" :max-date="new Date()" range />
+        <VueDatePicker v-model="date" :max-date="new Date()" range :clearable="false" />
         <button 
           class="px-2 py-2 rounded border hover:bg-gray-100 hover:border-gray-400"
           @click="redoGetData++"
