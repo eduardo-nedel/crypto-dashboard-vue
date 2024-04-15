@@ -1,7 +1,11 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
-import { getCoinDataById, getCoinPriceByIds } from '@/services/apis/coingeckoApi/coingeckoAxios'
+import {
+  getCoinDataById,
+  getCoinPriceByIds,
+  getCoinHistoricalChartDataWithinTimeRangeById
+} from '@/services/apis/coingeckoApi/coingeckoAxios'
 import { supportedCurrencies } from '@/helpers/constants/currencies'
 
 export const useCryptocurrenciesStore = defineStore('cryptocurrencies', () => {
@@ -43,5 +47,20 @@ export const useCryptocurrenciesStore = defineStore('cryptocurrencies', () => {
     await getCoinsPrices()
   }
 
-  return { cryptocurrencies, allCurrencies, getBaseCoinsData, getCoinsPrices }
+  const getCoinHistoricalChartData = async (id, props) => {
+    const { data: data } = await getCoinHistoricalChartDataWithinTimeRangeById(id, props)
+
+    cryptocurrencies.value[id] = {
+      ...cryptocurrencies.value[id],
+      chartData: data
+    }
+  }
+
+  return {
+    cryptocurrencies,
+    allCurrencies,
+    getBaseCoinsData,
+    getCoinsPrices,
+    getCoinHistoricalChartData
+  }
 })
