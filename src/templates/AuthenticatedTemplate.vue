@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-full">
+  <div class="min-h-full w-full">
     <Disclosure as="nav" class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -13,8 +13,8 @@
                   v-for="item in navigation" :key="item.name" 
                   :class="[
                     item.routeName === route.name ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 
-                    'rounded-md px-3 py-2 text-sm font-medium'
-                  ]" 
+                    'rounded-md px-3 py-2 text-sm font-medium cursor-pointer'
+                  ]"
                   :aria-current="item.current ? 'page' : undefined"
                   @click="router.push({ name: item.routeName })"
                 >
