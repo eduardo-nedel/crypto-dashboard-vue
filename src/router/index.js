@@ -9,7 +9,7 @@ const router = createRouter({
       component: () => import('../views/CryptoListView.vue')
     },
     {
-      path: '/currencies/:symbol',
+      path: '/currencies/:id',
       name: 'cryptoDetails',
       component: () => import('../views/CryptoDetailsView.vue')
     },
