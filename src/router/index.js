@@ -5,13 +5,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('../views/HomeView.vue')
+      name: 'cryptoList',
+      component: () => import('../views/CryptoListView.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
+      path: '/currencies/:symbol',
+      name: 'cryptoDetails',
+      component: () => import('../views/CryptoDetailsView.vue')
     },
     {
       path: '/:pathMatch(.*)*',
