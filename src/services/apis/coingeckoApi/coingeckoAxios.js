@@ -3,7 +3,9 @@ import axios from 'axios'
 const api = axios.create({
   baseURL: 'https://api.coingecko.com/api/v3/',
   headers: {
-    'x-cg-demo-api-key': 'CG-bXAsyzuPd72181Lphnxp5sGa'
+    'x-cg-demo-api-key': 'CG-bXAsyzuPd72181Lphnxp5sGa',
+    Accept: 'application/json',
+    accept: 'application/json'
   }
 })
 

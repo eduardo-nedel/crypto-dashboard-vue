@@ -16,43 +16,55 @@ export const useCryptocurrenciesStore = defineStore('cryptocurrencies', () => {
   )
 
   const getCoinsPrices = async () => {
-    const { data: prices } = await getCoinPriceByIds(supportedCurrencies)
+    try {
+      const { data: prices } = await getCoinPriceByIds(supportedCurrencies)
 
-    Object.keys(cryptocurrencies.value).forEach((key) => {
-      cryptocurrencies.value[key] = {
-        ...cryptocurrencies.value[key],
-        ...prices[key]
-      }
-    })
+      Object.keys(cryptocurrencies.value).forEach((key) => {
+        cryptocurrencies.value[key] = {
+          ...cryptocurrencies.value[key],
+          ...prices[key]
+        }
+      })
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const getBaseCoinsData = async () => {
-    const baseCoinsData = await Promise.all(
-      supportedCurrencies.map(async (id) => await getCoinDataById(id))
-    )
+    try {
+      const baseCoinsData = await Promise.all(
+        supportedCurrencies.map(async (id) => await getCoinDataById(id))
+      )
 
-    baseCoinsData.forEach(({ data }) => {
-      cryptocurrencies.value[data.id] = {
-        ...cryptocurrencies.value[data.id],
-        ...{
-          id: data.id,
-          image: data.image.small,
-          last_updated: data.last_updated,
-          name: data.name,
-          symbol: data.symbol
+      baseCoinsData.forEach(({ data }) => {
+        cryptocurrencies.value[data.id] = {
+          ...cryptocurrencies.value[data.id],
+          ...{
+            id: data.id,
+            image: data.image.small,
+            last_updated: data.last_updated,
+            name: data.name,
+            symbol: data.symbol
+          }
         }
-      }
-    })
+      })
 
-    await getCoinsPrices()
+      await getCoinsPrices()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const getCoinHistoricalChartData = async (id, props) => {
-    const { data: data } = await getCoinHistoricalChartDataWithinTimeRangeById(id, props)
+    try {
+      const { data: data } = await getCoinHistoricalChartDataWithinTimeRangeById(id, props)
 
-    cryptocurrencies.value[id] = {
-      ...cryptocurrencies.value[id],
-      chartData: data
+      cryptocurrencies.value[id] = {
+        ...cryptocurrencies.value[id],
+        chartData: data
+      }
+    } catch (error) {
+      console.error(error)
     }
   }
 

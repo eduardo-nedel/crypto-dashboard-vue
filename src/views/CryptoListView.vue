@@ -55,7 +55,7 @@
 
   const store = useCryptocurrenciesStore()
 
-  let interval = ref([])
+  const interval = ref([])
 
   onMounted(() => {
     interval.value = setInterval(store.getBaseCoinsData(), 60*1000)
