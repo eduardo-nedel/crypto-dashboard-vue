@@ -70,8 +70,8 @@
 
   const store = useCryptocurrenciesStore()
 
-  const redoGetData = ref(0)
-  const date = ref();
+  let redoGetData = ref(0)
+  let date = ref();
   const endDate = new Date();
   const startDate = new Date(new Date().setDate(endDate.getDate() - 7));
   date.value = [startDate, endDate];
