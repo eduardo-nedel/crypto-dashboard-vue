@@ -1,14 +1,12 @@
-# cripto-dashboard-vue
+## Made by
+Eduardo Mueller Nedel
 
-This template should help get you started developing with Vue 3 in Vite.
+## Short description
+This project use Vue, Axios, Tailwindcss, Vuepic vue-datepicker, Pinia and Apexcharts to create a simple SPA crypto dashboard that consumes [CoinGecko API](https://www.coingecko.com/en/api). 
 
-## Recommended IDE Setup
+There are 3 base screens, the first beeing a list of some coins, the second beeing a detail page that can be acessed by clicking in the list, and the last is a quick about page.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+The project use a simple architecture based on the default of Vue with some tweaks to make it easyer to understand.
 
 ## Project Setup
 
@@ -28,8 +26,3 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
